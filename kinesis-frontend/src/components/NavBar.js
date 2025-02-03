@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -72,11 +72,11 @@ const NavBar = () => {
             </ul>
           </div>
           <div className="book-button-container">
-            <a href="/booking">
+            <Link to="/booking" reloadDocument>
               <button className="book-button">
                 <p>PRENOTA UN APPUNTAMENTO</p>
               </button>
-            </a>
+            </Link>
           </div>
         </div>
         <div

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
@@ -31,9 +32,15 @@ const Footer = () => {
         <div className="second-container">
           <div className="map-footer-container">
             <p className="title">Sito</p>
-            <a href="/">Home</a>
-            <a href="/treatments">Trattamenti</a>
-            <a href="/contacts">Contatti</a>
+            <Link to="/" reloadDocument>
+              Home
+            </Link>
+            <Link to="/treatments" reloadDocument>
+              Trattamenti
+            </Link>
+            <Link to="/contacts" reloadDocument>
+              Contatti
+            </Link>
           </div>
           <div className="map-footer-container">
             <p className="title">Social</p>

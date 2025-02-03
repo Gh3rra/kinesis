@@ -31,9 +31,9 @@ const Footer = () => {
         <div className="second-container">
           <div className="map-footer-container">
             <p className="title">Sito</p>
-            <a>Home</a>
-            <a>Trattamenti</a>
-            <a>Contatti</a>
+            <a href="/">Home</a>
+            <a href="/treatments">Trattamenti</a>
+            <a href="/contacts">Contatti</a>
           </div>
           <div className="map-footer-container">
             <p className="title">Social</p>
@@ -169,7 +169,6 @@ const FooterStyled = styled.section`
     }
   }
   @media screen and (max-width: 800px) {
-
     padding: 0;
     height: auto;
     .footer-container {

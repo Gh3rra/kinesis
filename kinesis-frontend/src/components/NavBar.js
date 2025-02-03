@@ -2,23 +2,25 @@ import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { IoIosClose } from "react-icons/io";
 
 const NavBar = () => {
-  const [scroll, setScroll] = useState(0);
+  // const [scroll, setScroll] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
   const boxRef = useRef(null);
   useEffect(() => {
-    document.addEventListener("scroll", scrollFunction);
+    // document.addEventListener("scroll", scrollFunction);
     document.addEventListener("mousedown", closeSideBar);
-    return () => document.removeEventListener("scroll", scrollFunction);
+    return () => {
+      // document.removeEventListener("scroll", scrollFunction);
+      document.removeEventListener("mousedown", closeSideBar);
+    };
   }, []);
 
-  const scrollFunction = () => {
+  /* const scrollFunction = () => {
     if (window.scrollY < 40) setScroll(window.scrollY);
     else setScroll(40);
     setShowMenu(false);
-  };
+  }; */
 
   const closeSideBar = (event) => {
     console.log(event.target.id === "sidebar-icon");

@@ -9,9 +9,9 @@ const Booking = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const [uploaded, setUploaded] = useState(false);
+  // const [uploaded, setUploaded] = useState(false);
   const [sent, setSent] = useState(false);
-  const [errorCv, setErrorCv] = useState(false);
+  // const [errorCv, setErrorCv] = useState(false);
   const [error, setError] = useState(false);
 
   /*  const onDrop = (files) => {
@@ -70,7 +70,7 @@ const Booking = () => {
       setEmail("");
       setPhone("");
       setMessage("");
-      setErrorCv(false);
+      // setErrorCv(false);
       setError(false);
       setSent(true);
     }

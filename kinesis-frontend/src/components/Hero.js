@@ -4,9 +4,9 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
 const Hero = () => {
-   useLayoutEffect(() => {
-     window.scrollTo(0, 0);
-   });
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <HeroStyled>
       <section className="hero-img-container">
@@ -275,6 +275,8 @@ const HeroStyled = styled.div`
           height: 100%;
 
           img {
+            border-radius: 20px;
+
             width: 100%;
           }
         }
@@ -295,6 +297,8 @@ const HeroStyled = styled.div`
             height: 100%;
             img {
               width: 100%;
+              border-radius: 20px;
+
               filter: brightness(0.8);
             }
           }
@@ -511,7 +515,6 @@ const HeroStyled = styled.div`
         }
         .hero-image-container {
           display: block;
-          
         }
       }
       .img-container {

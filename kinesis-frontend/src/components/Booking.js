@@ -418,69 +418,63 @@ const BookingStyled = styled.section`
       max-width: 40ch;
     }
   }
-  @media screen and (max-width: 900px) {
-    padding: 0 3rem;
-  }
-  @media screen and (max-width: 700px) {
-    padding: 0 1rem;
-  }
-  @media screen and (max-width: 500px) {
-    padding: 0 1rem;
 
-    h1 {
-      font-size: 1.4rem;
+  @media screen and (max-width: 800px) {
+    margin: 150px 10px 50px 10px;
+    padding: 40px 10px 20px 10px;
+    .title-container {
+      h1 {
+        font-size: 1.2rem;
+      }
     }
-    h2 {
-      padding: 3rem 1rem;
-      font-size: 1.1rem;
+    .subtitle-container {
+      padding-top: 20px;
+      h2 {
+        font-size: 1.8rem;
+      }
     }
-    form {
-      .form-container {
-        padding: 3rem 1rem;
-        display: flex;
-        flex-direction: column;
-
-        .attachment-input {
-          .dropzone {
-            p {
-              padding: 0 1rem;
-            }
-          }
-        }
-
-        .error-attachment-input {
-          label {
-            color: red;
-          }
-          .dropzone {
-            border: 2px dashed red;
-          }
-        }
-
-        .attachment-form-container {
-          padding: 2rem;
-        }
-        .button-container {
+    .booking-form-container {
+      padding-bottom: 30px;
+      h2 {
+        font-size: 1.1rem;
+        padding: 0 10px;
+      }
+      form {
+        .form-container {
+          padding: 0 20px;
           display: flex;
-          justify-content: center;
-          grid-column: 1 / 3;
-          width: 100%;
-          button {
-            border: none;
-            background-color: var(--secondary-color);
-            border-radius: 5px;
-            color: white;
-            font-size: inherit;
-            font-weight: 500;
-            font-family: inherit;
-            padding: 1rem 2rem;
-            transition: all 0.3s ease;
-            &:hover {
-              background-color: #0073b9;
-              cursor: pointer;
+          flex-direction: column;
+          .button-container {
+            display: flex;
+            justify-content: center;
+            grid-column: 1 / 3;
+            width: 100%;
+            button {
+              border: none;
+              background-color: var(--secondary-color);
+              border-radius: 5px;
+              color: white;
+              font-size: inherit;
+              font-weight: 500;
+              font-family: inherit;
+              padding: 1rem 2rem;
+              transition: all 0.3s ease;
+              &:hover {
+                background-color: #0073b9;
+                cursor: pointer;
+              }
             }
           }
         }
+      }
+    }
+
+    .sent-message {
+      padding:120px 20px;
+      h1 {
+        text-align: center;
+        font-size: 1.3rem;
+
       }
     }
   }

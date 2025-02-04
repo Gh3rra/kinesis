@@ -10,8 +10,11 @@ const NavBar = () => {
   useEffect(() => {
     // document.addEventListener("scroll", scrollFunction);
     document.addEventListener("mousedown", closeSideBar);
+    document.addEventListener("scroll", closeSideBar);
     return () => {
       // document.removeEventListener("scroll", scrollFunction);
+      document.removeEventListener("scroll", closeSideBar);
+
       document.removeEventListener("mousedown", closeSideBar);
     };
   }, []);
@@ -23,36 +26,30 @@ const NavBar = () => {
   }; */
 
   const closeSideBar = (event) => {
-    console.log(event.target.id === "sidebar-icon");
+    console.log(boxRef.current);
+    console.log(event.target);
+
     if (
       boxRef.current &&
       !boxRef.current.contains(event.target) &&
       event.target.id !== "sidebar-icon"
     ) {
-      console.log("CIAO");
-
       setShowMenu(false);
     }
   };
 
   return (
-    <NavBarStyled style={{ height: `calc(78px)` }}>
+    <NavBarStyled>
       <div className={`navbar-wrapper`}>
         <div className="navbar-container">
           <div className="logo-container">
             <a href="/">
-              <img
-                style={{
-                  height: `calc(70px) `,
-                }}
-                src="images/logo.png"
-                alt=""
-              />
+              <img src="images/logo-nav.png" alt="" />
             </a>
           </div>
           <RxHamburgerMenu
-            size={"25px"}
-            className="hamburger-icon"
+            size={"40px"}
+            className={`hamburger-icon ${showMenu ? "active" : ""}`}
             id="sidebar-icon"
             onClick={() => {
               setShowMenu((prev) => !prev);
@@ -86,14 +83,19 @@ const NavBar = () => {
           <div>
             <ul className="sidebar-menu-list">
               <li>
-                <NavLink to="/">Home</NavLink>
+                <NavLink
+                  className={({ isActive }) => (isActive ? "active-link" : "")}
+                  to="/"
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
                 <NavLink
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                   to="treatments"
                 >
-                  Servizi
+                  Trattamenti
                 </NavLink>
               </li>
               <li>
@@ -121,6 +123,7 @@ const NavBarStyled = styled.div`
   margin-top: 10px;
   padding: 0 100px;
   z-index: 99;
+  height: 78px;
 
   .navbar-wrapper {
     background-color: var(--bg-primary);
@@ -132,6 +135,7 @@ const NavBarStyled = styled.div`
     max-width: 1300px;
     position: relative;
     border-radius: 10px;
+
     box-shadow: 0 8px 20px #00000026;
     .navbar-container {
       width: 100%;
@@ -145,6 +149,12 @@ const NavBarStyled = styled.div`
 
       .logo-container {
         padding: 5px 0;
+        overflow: hidden;
+
+        img {
+          align-self: center;
+          height: 78px;
+        }
       }
       .book-button-container {
         padding: 0 20px;
@@ -225,8 +235,16 @@ const NavBarStyled = styled.div`
         }
         .hamburger-icon {
           display: block;
+          padding: 10px;
+          border-radius: 10px;
           &:hover {
             cursor: pointer;
+            border-radius: 10px;
+            background: transparent;
+            outline: none;
+          }
+          &.active {
+            background-color: #dbdbdb;
           }
         }
       }
@@ -257,43 +275,28 @@ const NavBarStyled = styled.div`
         ul {
           display: flex;
           flex-direction: column;
+          padding-bottom: 10px;
 
           li {
-            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            font-size: 1.1rem;
             font-weight: 500;
             position: relative;
             a {
-              color: var(--primary-color);
+              border-radius: 10px;
+              color: #363636;
+              padding: 20px 20px;
               display: flex;
               align-items: center;
               height: 100%;
-              padding: 0 2rem;
               text-align: center;
-              padding: 25px;
               &:hover {
                 background-color: #dbdbdb;
-                &::before {
-                  content: "";
-                  position: absolute;
-                  height: 100%;
-                  width: 5px;
-                  background-color: var(--secondary-color);
-                  top: 0;
-                  left: 0;
-                }
               }
             }
             .active-link {
               background-color: #dbdbdb;
-              &::before {
-                content: "";
-                position: absolute;
-                height: 100%;
-                width: 5px;
-                background-color: var(--secondary-color);
-                bottom: 0;
-                left: 0;
-              }
             }
           }
         }

@@ -180,15 +180,34 @@ const FooterStyled = styled.section`
     height: auto;
     .footer-container {
       padding-left: 20px;
-
       flex-direction: column;
+      .first-container {
+        .footer-logo {
+          height: 100px;
+          width: 100px;
+        }
+        .footer-social-container {
+          a {
+            svg {
+              height: 25px;
+              width: 25px;
+            }
+          }
+        }
+      }
       .separator {
         display: none;
       }
       .second-container {
         flex-direction: column;
         .map-footer-container {
-          padding: 50px 0;
+          padding: 20px 0;
+          .title {
+            font-size: 1.3rem;
+          }
+          a {
+            font-size: 1rem;
+          }
         }
       }
     }

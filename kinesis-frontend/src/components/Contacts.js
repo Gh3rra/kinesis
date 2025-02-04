@@ -1,7 +1,11 @@
+import { useLayoutEffect } from "react";
 import styled from "styled-components";
 //import serverUrl from "./api/serverUrl";
 
 const Contacts = () => {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <ContactsStyled>
       <div className="contacts-container">
@@ -39,17 +43,19 @@ const ContactsStyled = styled.section`
   display: flex;
   align-items: center;
   width: 100%;
+  margin-top: 170px;
+  height: 100%;
+
   justify-content: center;
   .contacts-container {
     padding: 0 100px;
     max-width: 1300px;
     padding-bottom: 200px;
-    margin-top: 200px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    height: 1000px;
+    height: 100%;
 
     .image-flex {
       flex: 1;
@@ -126,14 +132,33 @@ const ContactsStyled = styled.section`
     padding: 0;
 
     .contacts-container {
-      padding: 0;
-      padding-left: 20px;
+      padding: 0 20px;
       flex-direction: column-reverse;
+      height: 100%;
+      padding-bottom: 20px;
       .contacts {
+        flex: 1;
         padding: 0;
+        .subtitle-container {
+          p {
+            font-size: 1.7rem;
+          }
+        }
       }
       .image-flex {
-        display: none;
+        padding-top: 50px;
+        overflow: hidden;
+        flex: 1;
+        height: 100%;
+
+        .image-container {
+          height: 100%;
+          border-radius: 20px;
+          overflow: hidden;
+
+          img {
+          }
+        }
       }
     }
   }

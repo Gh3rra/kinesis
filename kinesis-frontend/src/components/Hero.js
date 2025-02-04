@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import styled from "styled-components";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
 const Hero = () => {
+   useLayoutEffect(() => {
+     window.scrollTo(0, 0);
+   });
   return (
     <HeroStyled>
       <section className="hero-img-container">
@@ -12,7 +15,7 @@ const Hero = () => {
           alt=""
           className="background-hero-image"
         />
-        <img src="images/hero_image.avif" alt="" className="hero-image" />
+        <img src="images/hero_image.png" alt="" className="hero-image" />
       </section>
       <div className="hero-container">
         <div className="hero-text-container">
@@ -30,7 +33,9 @@ const Hero = () => {
 
           <div className="book-button-container">
             <button className="book-button">
-              <p>PRENOTA UN APPUNTAMENTO</p>
+              <a href="/booking">
+                <p>PRENOTA UN APPUNTAMENTO</p>
+              </a>
             </button>
           </div>
           <div className="hero-image-container">
@@ -216,14 +221,18 @@ const HeroStyled = styled.div`
             transform: translate(0);
             cursor: pointer;
           }
-          p {
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 600;
+          a {
+            text-decoration: none;
+            p {
+              color: #fff;
+              font-size: 1rem;
+              font-weight: 600;
+            }
           }
         }
       }
       .hero-image-container {
+        display: none;
         width: 100%;
         img {
           width: 100%;
@@ -499,6 +508,10 @@ const HeroStyled = styled.div`
         .description-text {
           text-align: center;
           padding: 0 20px;
+        }
+        .hero-image-container {
+          display: block;
+          
         }
       }
       .img-container {

@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import styled from "styled-components";
 
 const Treatments = () => {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <TreatmentsStyled>
       <div className="first-hero">
@@ -33,7 +36,9 @@ const Treatments = () => {
             </div>
             <div className="book-button-container">
               <button className="book-button">
-                <p>PRENOTA UN APPUNTAMENTO</p>
+                <a href="/booking">
+                  <p>PRENOTA UN APPUNTAMENTO</p>
+                </a>
               </button>
             </div>
           </div>
@@ -195,10 +200,14 @@ const TreatmentsStyled = styled.section`
               transform: translate(0);
               cursor: pointer;
             }
-            p {
-              color: #fff;
-              font-size: 1rem;
-              font-weight: 600;
+            a {
+              text-decoration: none;
+
+              p {
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 600;
+              }
             }
           }
         }
